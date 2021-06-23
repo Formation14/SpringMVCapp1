@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -7,16 +8,21 @@
 </head>
 <body>
 <form th:method="POST" th:action="@{/users}" th:object="${addUser}">
-  <label for="name">Name:</label>
-  <input type="text" th:field="*{firstName}" id="name">
-  <br/>
-  <label for="lastName">Last name:</label>
-  <input type="text" th:field="*{lastName}" id="lastName">
-  <br/>
-  <label for="email">Email:</label>
-  <input type="text" th:field="*{email}" id="email">
-  <br/>
-  <input type="submit" value="Create!"/>
+  <p>
+    <label for="name">Name:</label>
+    <input type="text" th:field="*{firstName}" id="name">
+  </p>
+  <p>
+    <label for="lastName">Last name:</label>
+    <input type="text" th:field="*{lastName}" id="lastName">
+  </p>
+  <p>
+    <label for="email">Email:</label>
+    <input type="text" th:field="*{email}" id="email">
+  </p>
+  <p>
+    <input type="submit" value="Create user"/>
+  </p>
 </form>
 
 </body>

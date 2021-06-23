@@ -8,13 +8,13 @@
 </head>
 <body>
 <div th:each="user : ${allUsers}">
-    <a th:href="@{/users/{id}(id=${user.getId()})}" th:text="${user}">user</a>
-
+    <p>
+        <a th:href="@{/users/{id}(id=${user.getId()})}" th:text="${user.getId()} + ' ' + ${user.getFirstName()} + ' ' + |${user.getLastName()}| + ' ' + |${user.getEmail()}|">user</a>
+    </p>
 </div>
-
-<dr/>
-<hr/>
-
-<a href="http://localhost:8088/users/new">Create new user</a>
+<hr>
+<p>
+    <a href="/users/new">Create new user</a>
+</p>
 </body>
 </html>
