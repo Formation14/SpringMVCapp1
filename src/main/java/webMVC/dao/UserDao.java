@@ -1,10 +1,10 @@
-package webMVC.service;
+package webMVC.dao;
 
 import webMVC.model.User;
 
 import java.util.List;
 
-public interface UserService {
+public interface UserDao {
     List<User> getAllUsers();
     User getUser(int id);
     void addUser(User user);

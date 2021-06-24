@@ -3,43 +3,47 @@ package webMVC.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import webMVC.dao.UserDAO;
+import webMVC.dao.UserDao;
 import webMVC.model.User;
 import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
-    private UserDAO userDAO;
+    private UserDao userDao;
 
-    @Override
-    @Transactional(readOnly = true)
-    public List<User> getAllUsers() {
-        return userDAO.getAllUsers();
+    @Autowired
+    public UserServiceImpl(UserDao userDao) {
+        this.userDao = userDao;
     }
 
     @Override
     @Transactional
-    public void saveUser(User user) {
-        userDAO.saveUser(user);
+    public List<User> getAllUsers() {
+        return userDao.getAllUsers();
     }
 
     @Override
-    public User getUserById(int id) {
-        return userDAO.getUserById(id);
-    }
-
-
-    @Override
-    @Transactional()
-    public void updateUserById(int id, User user) {
-        userDAO.updateUserById(id,user);
+    @Transactional
+    public User getUser(int id) {
+        return userDao.getUser(id);
     }
 
     @Override
-    @Transactional()
-    public void deleteUserById(int id) {
-        userDAO.deleteUserById(id);
+    @Transactional
+    public void addUser(User user) {
+        userDao.addUser(user);
+    }
+
+    @Override
+    @Transactional
+    public void deleteUser(User user) {
+        userDao.deleteUser(user);
+    }
+
+    @Override
+    @Transactional
+    public void update(User user) {
+        userDao.update(user);
     }
 }
