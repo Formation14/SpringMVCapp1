@@ -21,11 +21,11 @@
             <td th:text="${user.lastName}"/>
             <td th:text="${user.email}"/>
             <td>
-                <form th:action="@{/users/{id}/edit(id=${user.getId()})}">
+                <form th:action="@{/{id}/edit(id=${user.getId()})}">
                 <input type="submit" value="Edit"/>
                 </form>
                 <form th:method="DELETE"
-                      th:action="@{/users/{id}(id=${user.getId()})}">
+                      th:action="@{/{id}(id=${user.getId()})}">
                     <input type="submit" value="Delete"/>
                 </form>
             </td>
@@ -34,7 +34,7 @@
     </th:block>
 </table>
 <br/>
-<form th:action="@{/users/adduser}">
+<form th:action="@{/adduser}">
     <input type="submit" value="CREATE USER"/>
 </form>
 </body>

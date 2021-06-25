@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping("/users")
+@RequestMapping("/")
 @Transactional
 public class UserController {
 
@@ -39,7 +39,7 @@ public class UserController {
     @PostMapping()
     public String saveUser(@ModelAttribute("user") User user) {
         userService.addUser(user);
-        return "redirect:/users";
+        return "redirect:/";
     }
 
     @GetMapping("/{id}/edit")
@@ -52,12 +52,12 @@ public class UserController {
     @PatchMapping("/{id}")
     public String update(@ModelAttribute("user") User user) {
         userService.update(user);
-        return "redirect:/users";
+        return "redirect:/";
     }
 
     @DeleteMapping("/{id}")
     public String deleteUser(@PathVariable("id") Integer id) {
         userService.deleteUser(userService.getUser(id));
-        return "redirect:/users";
+        return "redirect:/";
     }
 }
